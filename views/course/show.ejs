@@ -1,0 +1,35 @@
+<%- include("../header.ejs") %>
+
+<br><br><br>
+
+<h1 class="bg-info text-center mt-5">Course Display</h1>
+
+<div class="container">
+    <table class="table table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Message</th>
+           
+        </tr>
+      
+            <tr>
+                <td><%= courseshow.id %></td>
+                <td><%= courseshow.name %></td>
+                <td><%= courseshow.email %></td>
+                <td><%= courseshow.course %></td>
+                <td><%= courseshow.status %></td>
+                <td><%= courseshow.comment %></td>
+                
+            </tr>
+   
+       
+    </table>
+    <center>
+        <a href="/courseView" class="btn btn-info">Back</a>
+    </center>
+</div>
+<%- include("../footer.ejs") %>

@@ -1,0 +1,91 @@
+<%- include("../header.ejs") %>
+
+<br><br><br>
+
+<h1 class="bg-info text-center mt-5">Course Display</h1>
+
+<div class="container">
+    <% if(msg.length>0){ %>
+        <div class="alert alert-success">
+            <%= msg %>
+        </div>
+   <% } %>
+    <table class="table table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Message</th>
+            <th></th>
+            <th></th>
+            <th>Action</th>
+        </tr>
+        <% courses.forEach((item)=>{ %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.email %></td>
+                <td><%= item.course %></td>
+                <td><%= item.status %></td>
+                <td><%= item.comment %></td>
+                <td>
+                    <form action="/admin/updateStatus/<%= item.id %>" method="post">
+                        <textarea name="comment" id=""></textarea>
+                        <input type="hidden" name="name" value="<%= item.name %>">
+                        <input type="hidden" name="email" value="<%= item.email %>">
+                        <input type="hidden" name="course" value="<%= item.course %>">
+                    
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-info text-white" name="status" value="Approved">Approved</button>
+
+                    <button type="submit" class="btn btn-danger" name="status" value="Rejected">Rejected</button>
+                </form>
+                </td>
+                <td>
+                    <a href="" class="btn btn-info">view</a>
+                    <a href="" class="btn btn-success">edit</a>
+                    <a href="" class="btn btn-danger">delete</a>
+                </td>
+            </tr>
+       <% }) %>
+       
+    </table>
+</div>
+
+<br><br>
+
+<h1 class="bg-info text-center mt-5">Contact Display</h1>
+
+<div class="container">
+    <% if(msg.length>0){ %>
+        <div class="alert alert-success">
+            <%= msg %>
+        </div>
+   <% } %>
+    <table class="table table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Status</th>
+        </tr>
+        <% contacts.forEach((item)=>{ %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.first_name %></td>
+                <td><%= item.last_name %></td>
+                <td><%= item.email %></td>
+                <td><%= item.message %></td>
+                <td><%= item.status %></td>
+              
+            </tr>
+       <% }) %>
+       
+    </table>
+</div>
+<%- include("../footer.ejs") %>
