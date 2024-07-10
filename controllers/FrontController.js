@@ -150,6 +150,16 @@ class FrontController{
                     if(user.role == 'admin' && user.is_verified == 1){
                         const token = jwt.sign({ID:user._id},'pninfosystytytt');
                         res.cookie('token',token)
+                        // const token = jwt.sign({ ID: user._id }, 'pninfosystytytt', {
+                        //     expiresIn: '2h', // Set an expiration time for the token
+                        // });
+    
+                        // res.cookie('token', token, {
+                        //     httpOnly: true,
+                        //     secure: false,
+                        //     sameSite: 'Strict',
+                        //     path: '/', 
+                        // });
                         res.redirect('/home');
                     }else if(user.role == 'student' && user.is_verified == 1){
                         const token = jwt.sign({ID:user._id},'pninfosystytytt');

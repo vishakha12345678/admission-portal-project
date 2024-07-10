@@ -16,6 +16,19 @@ app.use(session({
     saveUninitialized:true,
 }));
 
+// app.use(session({
+//     secret: 'secret',
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: {
+//         httpOnly: true,
+//         secure: false, // Set to true when using HTTPS
+//         sameSite: 'Strict', // Helps to mitigate CSRF attacks
+//         path: '/', // Ensure the cookie is available across the entire domain
+//     }
+// }));
+
+
 app.use(flash());
 
 const fileUpload = require('express-fileupload');

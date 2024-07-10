@@ -10,6 +10,8 @@ const route = express.Router()
 
 const checkUserAuth = require('../middleware/auth');
 const adminRole =  require('../middleware/admin-role');
+const checkNotAuth = require('../middleware/checkNotAuth');
+
 
 //routing
 // route.get('/',(req,res)=>{
@@ -21,7 +23,7 @@ const adminRole =  require('../middleware/admin-role');
 // });
 
 //controller routing
-route.get('/',FrontController.login);
+route.get('/',checkNotAuth,FrontController.login);
 route.get('/register',FrontController.register);
 route.get('/home',checkUserAuth,FrontController.home);
 route.get('/about',checkUserAuth,FrontController.about);
